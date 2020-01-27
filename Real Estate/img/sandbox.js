@@ -1,0 +1,166 @@
+const nextBtn = document.querySelector('.next');
+const prevBtn = document.querySelector('.prev');
+const body = document.querySelector('.image-container');
+const box1 = document.querySelector('.box:nth-child(1)');
+const box2 = document.querySelector('.box:nth-child(2)');
+const box3 = document.querySelector('.box:nth-child(3)');
+const box4 = document.querySelector('.box:nth-child(4)');
+const box5 = document.querySelector('.box:nth-child(5)');
+var details = document.querySelector('.details');
+const story = document.querySelector('.story');
+const header = document.querySelector('header');
+const boxes = document.querySelectorAll('.box');
+var kumasi = document.querySelector('.kumasi');
+var accra = document.querySelector('.accra');
+var all = document.querySelector('.all');
+let counter = 0;
+
+all.addEventListener('click', (e)=>{
+    e.preventDefault();
+    boxes.forEach((box)=>{
+        box.style.display = 'block';
+    })
+})
+
+kumasi.addEventListener('click', (e)=>{
+    e.preventDefault();
+    boxes.forEach((box)=>{
+        box.style.display = 'block';
+        if(box.dataset.loc != 'kumasi'){
+            box.style.display = 'none';
+        }else{
+            body.animate([{opacity:'0.2'},{opacity:"1.0"}],{duration:500,fill:'forwards'});
+            story.animate([{opacity:'0.2'},{opacity:"1.0"}],{duration:500,fill:'forwards'});
+            body.style.backgroundImage = 'url(0.jpg)';
+            box5.classList.remove('active');
+            box4.classList.remove('active');
+            box3.classList.remove('active');
+            box2.classList.remove('active');
+            box1.classList.add('active');
+            story.innerHTML = "<p>This large 3 bed / 2.5 bath craftsman style home is open, airy, bright and cheerful. With over sf of space, lots of upgrades have been made to the home.The kitchen has premium stainless steel appliances. It has hardwood style flooring downstairs with upgraded newer carpet upstairs. The home is full of designer colored walls with stylish flooring and upgraded lighting and new wood interior blinds which makes for a cozy home. There are 3 large bedrooms and a loft upstairs that can be a family room, den or office (is now being used as a 4th bedroom). The master bedroom is private with an extra large bathroom with large walk in closet plus two storage closets, separate toilet area and a 6 foot soaking tub / shower.</p>"
+        }
+    })
+})
+
+accra.addEventListener('click', (e)=>{
+    e.preventDefault();
+    boxes.forEach((box)=>{
+        box.style.display = 'block';
+        if(box.dataset.loc != 'accra'){
+            box.style.display = 'none';
+        }else{
+            body.animate([{opacity:'0.2'},{opacity:"1.0"}],{duration:500,fill:'forwards'});
+            story.animate([{opacity:'0.2'},{opacity:"1.0"}],{duration:500,fill:'forwards'});
+            body.style.backgroundImage = 'url(2.jpg)';
+            box5.classList.remove('active');
+            box4.classList.remove('active');
+            box1.classList.remove('active');
+            box2.classList.remove('active');
+            box3.classList.add('active');
+            story.innerHTML = "<p>This single-owner home sits on a large lot with mature trees. It’s ready for the next owners to bring it into the 21st century.</p>"
+        }
+    })
+})
+
+nextBtn.addEventListener('click', ()=>{
+    body.animate([{opacity:'0.2'},{opacity:"1.0"}],{duration:500,fill:'forwards'});
+    if(counter == 2){
+        counter = -1;
+    }
+    counter++
+    if(box1.classList.contains("active")){
+        body.style.backgroundImage = `url(wreck/${counter}.jpg)`;
+    }else if(box2.classList.contains("active")){
+        body.style.backgroundImage = `url(frozen/${counter}.jpg)`;
+    }else if(box3.classList.contains("active")){
+        body.style.backgroundImage = `url(coco/${counter}.jpg)`;
+    }else if(box4.classList.contains("active")){
+        body.style.backgroundImage = `url(guardians/${counter}.jpg)`;
+    }else if(box5.classList.contains("active")){
+        body.style.backgroundImage = `url(naruto/${counter}.jpg)`;
+    }
+})
+
+prevBtn.addEventListener('click', ()=>{
+    body.animate([{opacity:'0.2'},{opacity:"1.0"}],{duration:500,fill:'forwards'})
+    if(counter == 0){
+        counter = 3;
+    }
+    counter--;
+    if(box1.classList.contains("active")){
+        body.style.backgroundImage = `url(wreck/${counter}.jpg)`;
+    }else if(box2.classList.contains("active")){
+        body.style.backgroundImage = `url(frozen/${counter}.jpg)`;
+    }else if(box3.classList.contains("active")){
+        body.style.backgroundImage = `url(coco/${counter}.jpg)`;
+    }else if(box4.classList.contains("active")){
+        body.style.backgroundImage = `url(guardians/${counter}.jpg)`;
+    }else if(box5.classList.contains("active")){
+        body.style.backgroundImage = `url(naruto/${counter}.jpg)`;
+    }
+})
+
+box1.addEventListener('click', ()=>{
+    body.animate([{opacity:'0.2'},{opacity:"1.0"}],{duration:500,fill:'forwards'});
+    story.animate([{opacity:'0.2'},{opacity:"1.0"}],{duration:500,fill:'forwards'});
+    body.style.backgroundImage = 'url(0.jpg)';
+    box5.classList.remove('active');
+    box4.classList.remove('active');
+    box3.classList.remove('active');
+    box2.classList.remove('active');
+    box1.classList.add('active');
+    story.innerHTML = "<p>This large 3 bed / 2.5 bath craftsman style home is open, airy, bright and cheerful. With over sf of space, lots of upgrades have been made to the home.The kitchen has premium stainless steel appliances. It has hardwood style flooring downstairs with upgraded newer carpet upstairs. The home is full of designer colored walls with stylish flooring and upgraded lighting and new wood interior blinds which makes for a cozy home. There are 3 large bedrooms and a loft upstairs that can be a family room, den or office (is now being used as a 4th bedroom). The master bedroom is private with an extra large bathroom with large walk in closet plus two storage closets, separate toilet area and a 6 foot soaking tub / shower.</p>"
+    details.textContent = "4-Bedroom Apartment";
+})
+
+box2.addEventListener('click', ()=>{
+    body.animate([{opacity:'0.2'},{opacity:"1.0"}],{duration:500,fill:'forwards'});
+    story.animate([{opacity:'0.2'},{opacity:"1.0"}],{duration:500,fill:'forwards'});
+    body.style.backgroundImage = 'url(frozen/0.jpg)';
+    box4.classList.remove('active');
+    box3.classList.remove('active');
+    box5.classList.remove('active');
+    box1.classList.remove('active');
+    box2.classList.add('active');
+    story.innerHTML = "<p>Your living space extends to the yard, with a verdant lawn. In the back, find a secluded oasis surrounded by rustic wooden fencing, where you can relax and enjoy outdoor dining on the flagstone patio amid beautiful landscaping. And make great use of the over-sized, two-car garage with convenient alley access.</p>"
+    details.textContent = "2-Bedroom Apartment";
+})
+
+box3.addEventListener('click', ()=>{
+    body.animate([{opacity:'0.2'},{opacity:"1.0"}],{duration:500,fill:'forwards'});
+    story.animate([{opacity:'0.2'},{opacity:"1.0"}],{duration:500,fill:'forwards'});
+    body.style.backgroundImage = 'url(2.jpg)';
+    box5.classList.remove('active');
+    box4.classList.remove('active');
+    box1.classList.remove('active');
+    box2.classList.remove('active');
+    box3.classList.add('active');
+    story.innerHTML = "<p>Despite his family's baffling generations-old ban on music, Miguel dreams of becoming an accomplished musician like his idol, Ernesto de la Cruz. Desperate to prove his talent, Miguel finds himself in the stunning and colorful Land of the Dead following a mysterious chain of events. Along the way, he meets charming trickster Hector, and together, they set off on an extraordinary journey to unlock the real story behind Miguel's family history</p>"
+    details.textContent = "Single Room With Bathroom,Kitchen And Living Room";
+})
+
+box4.addEventListener('click', ()=>{
+    body.animate([{opacity:'0.2'},{opacity:"1.0"}],{duration:500,fill:'forwards'});
+    story.animate([{opacity:'0.2'},{opacity:"1.0"}],{duration:500,fill:'forwards'});
+    body.style.backgroundImage = 'url(3.jpg)';
+    box1.classList.remove('active');
+    box5.classList.remove('active');
+    box2.classList.remove('active');
+    box3.classList.remove('active');
+    box4.classList.add('active');
+    story.innerHTML = "<p>Generation after generation, immortal Guardians like Santa Claus, the Easter Bunny and the Tooth Fairy protect the world's children from darkness and despair. However, an evil boogeyman named Pitch Black schemes to overthrow the Guardians by obliterating children's belief in them. It falls to a winter sprite named Jack Frost to thwart Pitch's plans and save the Guardians from destruction.</p>"
+    details.textContent = "Bungalow";
+})
+
+box5.addEventListener('click', ()=>{
+    body.animate([{opacity:'0.2'},{opacity:"1.0"}],{duration:500,fill:'forwards'});
+    story.animate([{opacity:'0.2'},{opacity:"1.0"}],{duration:500,fill:'forwards'});
+    body.style.backgroundImage = 'url(4.jpg)';
+    box1.classList.remove('active');
+    box2.classList.remove('active');
+    box3.classList.remove('active');
+    box4.classList.remove('active');
+    box5.classList.add('active');
+    story.innerHTML = "<p>Twelve years before the start of the series, the Nine-Tails attacked Konohagakure destroying much of the village and taking many lives. The leader of the village, the Fourth Hokage, sacrificed his life to seal the Nine-Tails into a newborn, Naruto Uzumaki. Orphaned by the attack, Naruto was shunned by the villagers, who out of fear and anger, viewed him as the Nine-Tails itself.Though the Third Hokage outlawed speaking about anything related to the Nine-Tails, the children — taking their cues from their parents — inherited the same animosity towards Naruto.  In his thirst to be acknowledged, Naruto vowed he would one day become the greatest Hokage the village had ever seen.</p>"
+    details.textContent = "Skyrise Apartment";
+})

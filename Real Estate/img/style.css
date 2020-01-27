@@ -1,0 +1,257 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+body{
+  position: relative;
+  display: grid;
+  grid-template-areas: 
+  'header'
+  'main'
+  'footer'
+  'foot'
+  ;
+  background: #333;
+  overflow-x: hidden;
+}
+
+.image-container{
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background: url(0.jpg) center/cover no-repeat;
+  grid-area: header;
+/*  animation: intro 3s ease-in 0s forwards;*/
+}
+
+/*@keyframes intro{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}*/
+
+.prev,
+.next {
+cursor: pointer;
+position: absolute;
+top: 50%;
+width: auto;
+padding: 16px;
+margin-top: -50px;
+color: dodgerblue;
+font-weight: bold;
+font-size: 20px;
+border-radius: 0 3px 3px 0;
+user-select: none;
+-webkit-user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+#images{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-auto-rows: 300px; 
+}
+
+.box{
+  opacity: 0.5;
+  cursor: pointer;
+  transition-property: transform;
+  transition-duration: 0.7s;
+}
+
+img{
+  width: 100%;
+  height: 100%;
+}
+
+.text{
+  background: #333;;
+  width: 100%;
+  min-height: 10vh;
+  text-align: center;
+  font-size: 2rem; 
+  color: white;
+  border-top: 3px solid black; 
+  border-bottom: 3px solid black; 
+  grid-area: main;
+}
+
+.text-content{
+  padding-top: 5px; 
+}
+
+.box:hover{
+  opacity: 1;
+  transform: scale(1.1);
+  z-index: 2;
+  box-shadow: 0 5px 20px rgba(0,0,0, 1);
+}
+
+.active{
+  opacity: 1;
+}
+
+.stuff{
+  grid-area: foot;
+  width: 100%;
+  height: auto;
+  background: #333;
+  color: white;
+  text-align: center;
+}
+
+.stuff h2{
+  padding: 10px;
+}
+
+.site-logo {
+  font-weight: 900;
+  font-size: 0.8rem;
+  color: var(--text);
+  text-decoration: none;
+}
+
+header {
+  --text: #f4f4f4;
+  --text-inverse: #333;
+  --background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2em 2em;
+  transition: background 250ms ease-in;
+  background: var(--background);
+  color: var(--text);
+  display: flex;
+  flex-wrap: wrap;
+  z-index: 3;
+}
+
+ul a:hover{
+  color: dodgerblue;
+}
+
+.nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav__link {
+  --spacing: 1em;
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+  padding: calc(var(--spacing) / 2) var(--spacing);
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+}
+
+.nav__link:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: var(--spacing);
+  right: var(--spacing);
+  height: 2px;
+  background: currentColor;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  transition: -webkit-transform 150ms ease-in-out;
+  transition: transform 150ms ease-in-out;
+  transition: transform 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
+}
+
+.nav__link:hover::after {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+.nav__link--btn {
+  border: 1.5px solid currentColor;
+  border-radius: 2em;
+  margin-left: 1em;
+  transition: background 250ms ease-in-out;
+  letter-spacing: 1px;
+  padding: 0.75em 1.5em;
+}
+
+.nav__link--btn:hover {
+  background: var(--text);
+  color: var(--text-inverse);
+  border-color: var(--text);
+}
+
+.nav__link--btn::after {
+  display: none;
+}
+
+.nav__link--btn--highlight {
+  background: limegreen;
+  border-color: limegreen;
+  color: #333;
+}
+
+.nav__link--btn--highlight:hover {
+  background: var(--text);
+  border-color: var(--text);
+}
+
+.nav-scrolled {
+  --text: #333;
+  --text-inverse: #f4f4f4;
+  --background: #ccc;
+  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2);
+  z-index: 3;
+}
+
+.hide{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  display: none;
+}
+
+.hide a{
+  padding: 10px;
+  text-decoration: none;
+  color: dodgerblue;
+  transition: all 0.3s;
+}
+
+.hide a:hover{
+  color: white;
+}
+
+.nar:hover .hide{
+  display: flex;
+}
+
+.story{
+  font-size: 1.2em;
+  line-height: 1.6em;
+}
